@@ -1,2 +1,3 @@
 # Ignore directories
-Resources-Getting-Started-With-Git-Setup-Git-Workspace-on-Windows
+docx/
+node_modules/

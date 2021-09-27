@@ -1,0 +1,28 @@
+{
+  "name": "problemsolvingalgorithms",
+  "version": "1.0.0",
+  "description": "Nodemon app to actively track algorithm flows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielramirez0/ProblemSolving.git"
+  },
+  "keywords": [
+    "javascript",
+    "node.js",
+    "algorithms"
+  ],
+  "author": "Daniel Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielramirez0/ProblemSolving/issues"
+  },
+  "homepage": "https://github.com/danielramirez0/ProblemSolving#readme",
+  "dependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
