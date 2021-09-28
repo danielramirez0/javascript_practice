@@ -11,7 +11,8 @@ const reverseStringManual = (string) => {
 
 console.log(reverseStringManual("This is backwards"));
 
-const reverseStringBuiltInMethods = (str) => str.split("").reverse().join("");
+const reverseStringBuiltInMethods = (str) =>
+  str.split("").reverse().join("").toLowerCase();
 
 console.log(reverseStringBuiltInMethods("This is backwards"));
 
@@ -52,13 +53,16 @@ console.log(compressString("aaabbbcccdddeeefff"));
 console.log(compressString("abcdaabbccddaaabccdeefggg"));
 
 // Check if word is palindrome (same backwards as it is forward)
-const checkForPalindrome = function (str) {
+const isPalindrome = function (str) {
   let reverse = reverseStringBuiltInMethods(str);
-  return str === reverse ? "A Palindrome" : "Not a palindrome";
+  return str.toLowerCase() === reverse.toLowerCase() ? true : false;
 };
 
-console.log(checkForPalindrome("Nope"));
-console.log(checkForPalindrome("mom"));
+console.log("Nope is a palindrome:" + " " + isPalindrome("Nope"));
+console.log("Mom is a palindrome:" + " " + isPalindrome("mom"));
+console.log("Mom Mom is a palindrome:" + " " + isPalindrome("mom mom"));
+console.log("Dad Daddad is a palindrome:" + " " + isPalindrome("dad daddad"));
+console.log("Dad Dad Dad is a palindrome:" + " " + isPalindrome("Dad dad dad"));
 
 //////////PART 2////////////////
 // Check if number is happy or sad
@@ -161,3 +165,44 @@ console.log(sumOfElementsEqualsTarget([5, 17, 77, 55], 55));
 console.log(sumOfElementsEqualsTarget([10, 11, 101, 100], 111));
 console.log(sumOfElementsEqualsTarget([10, 11, 101, 100], 101));
 console.log(sumOfElementsEqualsTarget([10, 11, 101, 100], 110));
+
+// Prompt for string, test for palindrome
+function promptPalindrome() {
+  let str = String(
+    prompt("Type the string to test if it is a palindrome: ")
+      .split(" ")
+      .join("")
+  );
+  alert(isPalindrome(str) === true ? "It sure is!" : "Nope!");
+}
+
+// Can array form a sequence of incrementing positive numbers
+function canFormIncSequence(arr) {
+  let sorted = arr.sort((a, b) => a - b);
+  for (let i = 0; i < sorted.length - 1; i++) {
+    if (sorted[i] + 1 === sorted[i + 1]) continue;
+    else return false;
+  }
+  return true;
+}
+
+console.log(canFormIncSequence([17, 15, 20, 19, 21, 16, 18]));
+console.log(canFormIncSequence([5, 7, 3, 8, 6]));
+
+// Return the count of possitive integers in and the sum of the negative integers
+function getPositiveCountNegativeSum(arr) {
+  let positives = [];
+  let negatives = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] <= 0) {
+      negatives.push(arr[i]);
+    } else {
+      positives.push(arr[i]);
+    }
+  }
+  return [negatives.reduce((a, b) => a + b), positives.length];
+}
+
+console.log(
+  getPositiveCountNegativeSum([7, 9, -3, -32, 107, -1, 36, 95, -14, -99, 21])
+);
