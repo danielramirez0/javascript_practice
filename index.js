@@ -206,3 +206,67 @@ function getPositiveCountNegativeSum(arr) {
 console.log(
   getPositiveCountNegativeSum([7, 9, -3, -32, 107, -1, 36, 95, -14, -99, 21])
 );
+
+// Return highest and lowest in string of numbers
+function getHighLowFromString(str) {
+  let arr = [];
+  str.split(" ").forEach((num) => {
+    arr.push(num);
+  });
+  arr.sort((a, b) => a - b);
+  return String(arr[0] + " " + arr.slice(-1)[0]);
+}
+
+console.log(getHighLowFromString("22 11 33 44"));
+
+// Check for valid email address
+function isEmailAddress(str) {
+  const re = new RegExp(/\b[\w-]+@[\w-]+\.[A-Za-z]{2,}\b/);
+  return re.test(str);
+}
+
+console.log(isEmailAddress("mike1@gmail.com"));
+console.log(isEmailAddress("gmail.com"));
+
+// Replace letters with position in alphabet
+function swapLettersToAlphabetPosition(str) {
+  return str
+    .split("")
+    .map((char) => char.toLowerCase().charCodeAt(0) - 96)
+    .join(" ");
+}
+console.log(swapLettersToAlphabetPosition("abc"));
+console.log(swapLettersToAlphabetPosition("ABC"));
+console.log(swapLettersToAlphabetPosition("ZxY"));
+
+// Rolling 4 digit lock
+function getNumberOfTurns(current, target) {
+  let turns = 0;
+  let start = current.toString().split("");
+  let targets = target.toString().split("");
+  for (let i = 0; i < start.length; i++) {
+    let a = Number(start[i])
+    const b = Number(targets[i])
+    while (a != b) {
+        if (a < b) {
+            a++
+            turns++
+        } else {
+            a--
+            turns++
+        }
+    }
+    console.log(a, b);
+  }
+  return turns;
+}
+
+console.log(getNumberOfTurns(3893, 5296));
+
+// Return reciprocal as float
+const floatReciprocol = function (num) {
+    let reciprocal = reverseStringBuiltInMethods(num.toString())
+    return 1/parseInt(reciprocal)
+}
+
+console.log(floatReciprocol(17));

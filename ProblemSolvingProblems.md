@@ -74,9 +74,7 @@ Whiteboard Challenges
     - Use case:
     - Current lock: 3893
     - Target lock: 5296
-9. Happy Numbers
-    a. A happy number is a number defined by the following process: starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1. An example of a happy number is 19
-15. Given a number, return the reciprocal of the reverse of the original number, as a double.
+9. Given a number, return the reciprocal of the reverse of the original number, as a double.
     a. Use case: If given 17, return 0.01408 (1/71)
 
 ## Part 4
