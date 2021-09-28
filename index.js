@@ -136,3 +136,28 @@ const fibonacciSequence = (num, maxLength) => {
 };
 
 console.log(fibonacciSequence(1, 10));
+
+//////////PART 3////////////////
+// Return indices where when added they reach a speficied target
+const sumOfElementsEqualsTarget = (arr, target) => {
+  for (let i = 0; i < arr.length; i++) {
+    const a = arr[i];
+    for (let j = 0; j < arr.length; j++) {
+      if (j === i) {
+        continue;
+      } else {
+        const b = arr[j];
+        if (a + b === target) {
+          return `${a} and ${b} equal ${target}`;
+        }
+      }
+    }
+  }
+  return "Target not found";
+};
+
+console.log(sumOfElementsEqualsTarget([5, 17, 77, 50], 55));
+console.log(sumOfElementsEqualsTarget([5, 17, 77, 55], 55));
+console.log(sumOfElementsEqualsTarget([10, 11, 101, 100], 111));
+console.log(sumOfElementsEqualsTarget([10, 11, 101, 100], 101));
+console.log(sumOfElementsEqualsTarget([10, 11, 101, 100], 110));
