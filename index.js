@@ -325,24 +325,83 @@ console.log(getLongestString(findPalindromicSubstrings("google")));
 console.log(getLongestString(findPalindromicSubstrings("Google")));
 
 // Convert number to hours and minutes
-function convertNumToHM(num) {
-  let hrs;
-  let min;
-  let t = "AM"
-  let nums = num.toString().split(".");
-  hrs = nums[0];
-  if (hrs > 24 || hrs >= 13) {
-    hrs = hrs - 12;
-    t = "PM"
-  }
-  if (nums.length === 1) {
-    min = "00";
+function convertNumToTime(num) {
+  if (num > 24) {
+    return "not a valid number, use 24 or less with decimals";
   } else {
-    min = parseInt(nums[1])
-    min = min * 60 
+    let hrs;
+    let min;
+    let t = "AM";
+    let nums = num.toString().split(".");
+    hrs = nums[0];
+    if (hrs < 24 && hrs >= 13) {
+      hrs = hrs - 12;
+      t = "PM";
+    } else if (hrs == 24) {
+      hrs = "0";
+    }
+    if (nums.length === 1) {
+      min = "00";
+    } else {
+      min = parseInt(nums[1]);
+      min = min * 60;
+    }
+    return hrs + ":" + min.toString().substring(0, 2) + " " + t;
   }
-  return hrs + ":" + min.toString().substring(0, 2) + " " + t;
 }
 
-console.log(convertNumToHM(8));
-console.log(convertNumToHM(14.255));
+console.log(convertNumToTime(25));
+console.log(convertNumToTime(14.255));
+console.log(convertNumToTime(1.9));
+
+// Return 2 2xx absolute difference between a number and 13
+function getDoubleAbsoluteFrom13(num) {
+  let counter = 0;
+  let i = parseInt(num);
+  let multiplier = num > 13 ? 2 : 1;
+  while (i != 13) {
+    switch (i > 13) {
+      case true:
+        i--;
+        counter++;
+        break;
+      case false:
+        i++;
+        counter++;
+        break;
+      default:
+        return 0;
+    }
+  }
+  return counter * multiplier;
+}
+
+console.log(getDoubleAbsoluteFrom13(1));
+console.log(getDoubleAbsoluteFrom13(14));
+
+// Return similar right most digit
+function getRightMostDigit(num1, num2, num3) {
+  if (num1 < 0 && num2 < 0 && num3 < 0) {
+    return false;
+  } else {
+    let l1 = num1.toString();
+    let l2 = num2.toString();
+    let l3 = num3.toString();
+    let r1 = l1.charAt(l1.length - 1);
+    let r2 = l2.charAt(l2.length - 1);
+    let r3 = l3.charAt(l3.length - 1);
+    let count = 1;
+    if (r1 === r2) {
+      count++;
+      if (r2 === r3) {
+        count++;
+      }
+    } else {
+      return "No sims";
+    }
+    return count + " " + "numbers are similar";
+  }
+}
+
+console.log(getRightMostDigit(1, 2, 3));
+console.log(getRightMostDigit(1234, 12324, 1234));
