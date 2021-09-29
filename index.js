@@ -405,3 +405,46 @@ function getRightMostDigit(num1, num2, num3) {
 
 console.log(getRightMostDigit(1, 2, 3));
 console.log(getRightMostDigit(1234, 12324, 1234));
+
+// Check for 3 places between a and b
+function isSeparetedByThree(str) {
+  const re = new RegExp(/a[^a]{3,}b/);
+  return re.test(str);
+}
+
+console.log(isSeparetedByThree("aaa bbb aaa   bbb"));
+console.log(isSeparetedByThree("bbb bbb aaa"));
+console.log(isSeparetedByThree("bbb bbb aaa b"));
+
+// Check for equal number of ps and ts
+function pAndTEqual(str) {
+  let chars = str.split("");
+  let ps = 0;
+  let ts = 0;
+  for (let i = 0; i < chars.length; i++) {
+    if (chars[i] === "p") {
+      ps++;
+    }
+    if (chars[i] === "t") {
+      ts++;
+    }
+  }
+  return ps === ts;
+}
+
+console.log(pAndTEqual("tttppp"));
+console.log(pAndTEqual("ttppp"));
+
+// Get sum of digits in string
+function sumDigitsInString(str) {
+  let digits = [];
+  str.split('').forEach((el)=> {
+      if (!isNaN(parseInt(el))) {
+          digits.push(parseInt(el))
+      }
+  })
+  return digits.reduce((a,b) => a+ b)
+}
+
+console.log(sumDigitsInString("123abc"));
+
