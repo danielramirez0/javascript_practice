@@ -245,16 +245,16 @@ function getNumberOfTurns(current, target) {
   let start = current.toString().split("");
   let targets = target.toString().split("");
   for (let i = 0; i < start.length; i++) {
-    let a = Number(start[i])
-    const b = Number(targets[i])
+    let a = Number(start[i]);
+    const b = Number(targets[i]);
     while (a != b) {
-        if (a < b) {
-            a++
-            turns++
-        } else {
-            a--
-            turns++
-        }
+      if (a < b) {
+        a++;
+        turns++;
+      } else {
+        a--;
+        turns++;
+      }
     }
     console.log(a, b);
   }
@@ -265,8 +265,84 @@ console.log(getNumberOfTurns(3893, 5296));
 
 // Return reciprocal as float
 const floatReciprocol = function (num) {
-    let reciprocal = reverseStringBuiltInMethods(num.toString())
-    return 1/parseInt(reciprocal)
-}
+  let reciprocal = reverseStringBuiltInMethods(num.toString());
+  return 1 / parseInt(reciprocal);
+};
 
 console.log(floatReciprocol(17));
+
+//////////PART 4////////////////
+// Print next 20 leap years
+function showNextTwentyLeapYears(current) {
+  let leapYears = [];
+  let newYear = current + 1;
+  let counter = 0;
+  while (counter < 20) {
+    if (newYear % 4 === 0) {
+      if (newYear % 100 === 0) {
+      } else if (newYear % 400 === 0) {
+        leapYears.push(newYear);
+        counter++;
+      } else {
+        leapYears.push(newYear);
+        counter++;
+      }
+    }
+    newYear++;
+  }
+  return leapYears;
+}
+
+console.log(showNextTwentyLeapYears(2021));
+
+// Return longest palindromic substring
+function findPalindromicSubstrings(str) {
+  let palindromes = [];
+  let counter = 1;
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length + 1; j++) {
+      let temp = str.substring(i, j).toLowerCase();
+      if (isPalindrome(temp) && !palindromes.includes(temp)) {
+        counter++;
+        palindromes.push(temp);
+      }
+    }
+  }
+  return palindromes;
+}
+
+function getLongestString(arr) {
+  let longest = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+}
+
+console.log(getLongestString(findPalindromicSubstrings("google")));
+console.log(getLongestString(findPalindromicSubstrings("Google")));
+
+// Convert number to hours and minutes
+function convertNumToHM(num) {
+  let hrs;
+  let min;
+  let t = "AM"
+  let nums = num.toString().split(".");
+  hrs = nums[0];
+  if (hrs > 24 || hrs >= 13) {
+    hrs = hrs - 12;
+    t = "PM"
+  }
+  if (nums.length === 1) {
+    min = "00";
+  } else {
+    min = parseInt(nums[1])
+    min = min * 60 
+  }
+  return hrs + ":" + min.toString().substring(0, 2) + " " + t;
+}
+
+console.log(convertNumToHM(8));
+console.log(convertNumToHM(14.255));

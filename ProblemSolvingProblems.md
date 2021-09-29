@@ -23,20 +23,20 @@ Whiteboard Challenges
 ### Problems to solve using JavaScript
 
 1. Reverse a string
-    - Write code that takes a string as input and returns the string reversed
-    - i.e. “Hello” will be returned as “olleH”
+   - Write code that takes a string as input and returns the string reversed
+   - i.e. “Hello” will be returned as “olleH”
 2. Capitalize letter
-    - Write code that takes a string as input and capitalize the first letter of each word. Words will be separated by only one space. i.e. “hello world” should be outputted as “Hello World”
+   - Write code that takes a string as input and capitalize the first letter of each word. Words will be separated by only one space. i.e. “hello world” should be outputted as “Hello World”
 3. Compress a string of characters
-    - For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
+   - For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
 4. BONUS CHALLENGE: Palindrome
-    - A word, phrase, or sequence that reads the same backward as forward i.e. madam
-    - Write code that takes a user input and checks to see if it is a Palindrome and reports the result
+   - A word, phrase, or sequence that reads the same backward as forward i.e. madam
+   - Write code that takes a user input and checks to see if it is a Palindrome and reports the result
 
 ## Part 2
 
 1. Happy Numbers
-   - https://en.wikipedia.org/wiki/Happy_number
+   - [Wiki page](https://en.wikipedia.org/wiki/Happy_number)
    - A happy number is a number defined by the following process: starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1. An example of a happy number is 19
    - Write a method that determines if a number is happy or sad
 2. Prime Numbers
@@ -61,21 +61,21 @@ Whiteboard Challenges
 4. Create a method that takes an array of positive and negative numbers. Return an array where the first element is the count of the positive numbers and the second element is the sum of negative numbers.
    - Use case: [7, 9, -3, -32, 107, -1, 36, 95, -14, -99, 21]
 5. Create a method that accepts a string of space separated numbers and returns the highest and lowest number as a string
-    - Use case: “3 9 0 1 4 8 10 2” = “0 10”
+   - Use case: “3 9 0 1 4 8 10 2” = “0 10”
 6. Create a method that accepts a string, check if it’s a valid email address and returns either true or false depending on the valuation. Think about what is necessary to have a valid email address.
-    - Use case:
-    - “mike1@gmail.com” = true
-    - “gmail.com” = false
+   - Use case:
+   - “mike1@gmail.com” = true
+   - “gmail.com” = false
 7. Create a method that takes in a string and replaces each letter with its appropriate position in the alphabet and returns the string
-    - Use case:
-    - “abc” = “1 2 3”
-    - “coding is fun” = “3 15 4 9 14 7 9 19 6 21 14”
+   - Use case:
+   - “abc” = “1 2 3”
+   - “coding is fun” = “3 15 4 9 14 7 9 19 6 21 14”
 8. A briefcase has a four-digit rolling-lock. Each digit is a number from 0-9 that can be rolled either forwards or backwards. Write a method that returns the smallest number of turns it takes to transform the lock from current combination to the target combination. One turn is equivalent to rolling a number forwards or backwards by one.
-    - Use case:
-    - Current lock: 3893
-    - Target lock: 5296
+   - Use case:
+   - Current lock: 3893
+   - Target lock: 5296
 9. Given a number, return the reciprocal of the reverse of the original number, as a double.
-    a. Use case: If given 17, return 0.01408 (1/71)
+   a. Use case: If given 17, return 0.01408 (1/71)
 
 ## Part 4
 
@@ -92,7 +92,7 @@ Whiteboard Challenges
 10. Write function that translates a text to Pig Latin and back. English is translated to Pig Latin by taking the first letter of every word, moving it to the end of the word and adding ‘ay’. “The quick brown fox” becomes “Hetay uickqay rownbay oxfay”.
     Problem Solving With Arrays
 11. Write a method that returns the largest element in an array.
-12. Write a method that rotates a list by k elements. You input a value for k that represents how many places in the array you want to rotate by. For example, if k is rotated by 2, [1,2,3,4,5,6] becomes [3,4,5,6,1,2]. Try solving this without creating a copy of the array. How many swap or move  operations do you need?
+12. Write a method that rotates a list by k elements. You input a value for k that represents how many places in the array you want to rotate by. For example, if k is rotated by 2, [1,2,3,4,5,6] becomes [3,4,5,6,1,2]. Try solving this without creating a copy of the array. How many swap or move operations do you need?
 13. Write methods that add, subtract, and multiply two numbers in their digit-array representation (and return a new digit list). If you’re ambitious you can implement Karatsuba multiplication. Try different bases. What is the best base if you care about speed?
 
 ## Part 5
