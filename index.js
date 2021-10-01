@@ -438,13 +438,71 @@ console.log(pAndTEqual("ttppp"));
 // Get sum of digits in string
 function sumDigitsInString(str) {
   let digits = [];
-  str.split('').forEach((el)=> {
-      if (!isNaN(parseInt(el))) {
-          digits.push(parseInt(el))
-      }
-  })
-  return digits.reduce((a,b) => a+ b)
+  str.split("").forEach((el) => {
+    if (!isNaN(parseInt(el))) {
+      digits.push(parseInt(el));
+    }
+  });
+  return digits.reduce((a, b) => a + b);
 }
 
 console.log(sumDigitsInString("123abc"));
 
+// Check for proper fraction
+function getPrimeFactors(num) {
+  const factors = [];
+  let d = 2;
+  while (num != 1) {
+    if (num % d === 0) {
+      num = num / d;
+      if (isPrime(d)) {
+        factors.push(d);
+      }
+    } else {
+      d++;
+    }
+  }
+  return factors;
+}
+
+function getGreatestCommonFactor(num1, num2) {
+  const f1 = getFactors(num1);
+  const f2 = getFactors(num2);
+  let gcf = 0
+  for (let i = 0; i < f1.length; i++) {
+     for (let j = 0; j < f2.length; j++) {
+        if (f1[i] > gcf && f2.includes(f1[i])) {
+            gcf = f1[i]
+        } 
+     } 
+  }
+  return gcf
+}
+
+function getFactors(num) {
+  const f = [];
+  const sr = Math.floor(Math.sqrt(num));
+  let i = 1;
+  while (i != sr) {
+    if (num % i === 0) {
+      f.push(i);
+      f.push(num / i);
+    }
+    i++;
+  }
+  return f.sort((a, b) => a - b);
+}
+
+function isProperFraction(fraction) {
+  const ints = String(fraction).split(".");
+  const e = ints[1].length;
+  const m = 10 ** e;
+  let dividend = fraction * m;
+  let divisor = 1 * m;
+  const gcf = getGreatestCommonFactor(divisor, dividend);
+  dividend /= gcf;
+  divisor /= gcf;
+  return dividend/divisor < 1 ? true : false;
+}
+
+console.log(isProperFraction(2.625));
