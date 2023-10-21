@@ -468,15 +468,15 @@ function getPrimeFactors(num) {
 function getGreatestCommonFactor(num1, num2) {
   const f1 = getFactors(num1);
   const f2 = getFactors(num2);
-  let gcf = 0
+  let gcf = 0;
   for (let i = 0; i < f1.length; i++) {
-     for (let j = 0; j < f2.length; j++) {
-        if (f1[i] > gcf && f2.includes(f1[i])) {
-            gcf = f1[i]
-        } 
-     } 
+    for (let j = 0; j < f2.length; j++) {
+      if (f1[i] > gcf && f2.includes(f1[i])) {
+        gcf = f1[i];
+      }
+    }
   }
-  return gcf
+  return gcf;
 }
 
 function getFactors(num) {
@@ -502,7 +502,41 @@ function isProperFraction(fraction) {
   const gcf = getGreatestCommonFactor(divisor, dividend);
   dividend /= gcf;
   divisor /= gcf;
-  return dividend/divisor < 1 ? true : false;
+  return dividend / divisor < 1 ? true : false;
 }
 
 console.log(isProperFraction(2.625));
+
+function translateToPigLatin(str) {
+  let phrase = str.split(" ");
+  for (let i = 0; i < phrase.length; i++) {
+    let first = phrase[i].charAt(0);
+    phrase[i] = phrase[i].substr(1) + first.toLowerCase() + "ay";
+  }
+  phrase[0] = phrase[0].charAt(0).toUpperCase() + phrase[0].substr(1);
+  return phrase.join(" ");
+}
+
+console.log(translateToPigLatin("The quick brown fox"));
+
+function getLargestIn(arr) {
+  let largest = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i];
+    }
+  }
+  return largest;
+}
+
+console.log(getLargestIn([6, 5, -3, 8, 2, 1]));
+
+function shiftArrayBy(num, arr) {
+    let l = arr.length
+    for (let i = 0; i < l; i++) {
+        arr[i + num] = arr[i]
+    }
+    console.log(arr);
+}
+
+console.log(shiftArrayBy(2, [1,2,3,4,5,6]));
